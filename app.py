@@ -21,6 +21,13 @@ def add():
         with open("blog_posts.json", "r") as file:
             blog_posts = json.load(file)
 
+        new_id = 1
+
+        for post in blog_posts:
+            if new_id != post["id"]:
+                break
+            new_id += 1
+
         new_post = {"id": len(blog_posts) + 1,
                     "author": author,
                     "title": title,
@@ -34,6 +41,21 @@ def add():
         return redirect(url_for('index'))
 
     return render_template('add.html')
+
+
+@app.route('/delete/<int:post_id>')
+def delete(post_id):
+    with open("blog_posts.json", "r") as file:
+        blog_posts = json.load(file)
+
+    for i, post in enumerate(blog_posts):
+        if post["id"] == post_id:
+            del blog_posts[i]
+
+    with open("blog_posts.json", "w") as file:
+        file.write(json.dumps(blog_posts))
+
+    return redirect(url_for('index'))
 
 
 if __name__ == '__main__':
