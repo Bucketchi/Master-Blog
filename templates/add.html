@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Blogpost</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="add_form">
+        <h2>Add a Blogpost:</h2>
+        <form method="POST" action="/add">
+            <div class="form-group">
+                <input type="text" name="author" placeholder="Author"/>
+            </div>
+            <div class="form-group">
+                <input type="text" name="title" placeholder="Title"/>
+            </div>
+            <div class="form-group">
+                <textarea name="content"></textarea>
+            </div>
+            <div class="form-group">
+                <input type="submit" name="Submit" value="Publish"/>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
