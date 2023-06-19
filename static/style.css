@@ -10,6 +10,18 @@ body {
     margin: 10px 0;
 }
 
+.btn {
+      display: inline-block;
+      padding: 10px 10px;
+      background-color: #333;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+}
+
+
 .add_form {
     background-color: #FFF;
     border: 1px solid #DDD;

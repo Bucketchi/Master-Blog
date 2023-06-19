@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Blogpost</title>
+    <title>Update Blog Post</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="add_form">
-        <h1>Add a Blogpost:</h1>
-        <form method="POST" action="/add">
+        <h1>Update Blog Post</h1>
+        <form action="{{ url_for('update', post_id=post['id']) }}" method="POST">
             <div class="form-group">
-                <input type="text" name="author" placeholder="Author"/>
+                <input type="text" name="author" placeholder="Author" value="{{ post['author'] }}"/>
             </div>
             <div class="form-group">
-                <input type="text" name="title" placeholder="Title"/>
+                <input type="text" name="title" placeholder="Title" value="{{ post['title'] }}"/>
             </div>
             <div class="form-group">
-                <textarea name="content"></textarea>
+                <textarea name="content" placeholder="{{ post['content'] }}"></textarea>
             </div>
             <div class="form-group">
                 <input class="btn" type="submit" name="Submit" value="Publish"/>
